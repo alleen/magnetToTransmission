@@ -1,4 +1,4 @@
-#magnetTransmission
+#magnetToTransmission
 ---
 
 A chrome extension helps you fast add magnet link to Transmission server.
