@@ -3,7 +3,7 @@
     "author": "Alleen Wang",
     "name": "__MSG_appName__",
     "description": "__MSG_appDesc__",
-    "version": "0.1",
+    "version": "0.2",
     "default_locale": "en",
     "permissions": [ "contextMenus", "http://*/*", "https://*/*" ],
     "browser_action": {

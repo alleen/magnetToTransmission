@@ -46,17 +46,9 @@ Preference = {
     return Preference.cache = {};
   },
   bind: function() {
-    $("#prefType").change(function() {
-      var template, type;
-      type = $(this).val();
-      template = Preference.template[type];
-      $("#prefPort").val(template.port);
-      $("#prefUrl").val(template.url);
-      return $("#prefToken").val("");
-    });
     return $("#prefSave").click(function() {
       Preference.clearCache();
-      Preference.set("type", $("#prefType").val());
+      Preference.set("type", "transmission");
       Preference.set("ip", $("#prefIp").val());
       Preference.set("port", $("#prefPort").val());
       Preference.set("url", $("#prefUrl").val());

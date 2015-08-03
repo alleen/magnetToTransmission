@@ -1,10 +1,10 @@
 {
     "appName": {
-        "message": "magnet 連結傳送器",
+        "message": "Transmission Server 連結傳送器",
         "description": "The title of the application, displayed in the web store."
     },
     "appDesc": {
-        "message": "協助您快速將 magnet 連結丟到 Transmission 下載。",
+        "message": "傳送 magnet 連結至遠端 Transmission Server 下載。",
         "description":"The description of the application, displayed in the web store."
     },
     "contextMenusLabel": {
@@ -12,9 +12,6 @@
     },
     "prefTitle": {
         "message": "偏好設定"
-    },
-    "prefType": {
-        "message" : "機器類別"
     },
     "prefFetchToken": {
         "message" : "取得"

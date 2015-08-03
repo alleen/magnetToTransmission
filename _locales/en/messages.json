@@ -4,7 +4,7 @@
         "description": "The title of the application, displayed in the web store."
     },
     "appDesc": {
-        "message": "A chrome extension helps you fast add magnet link to Transmission.",
+        "message": "A chrome extension helps you add magnet link to Transmission Server.",
         "description":"The description of the application, displayed in the web store."
     },
     "contextMenusLabel": {
@@ -12,9 +12,6 @@
     },
     "prefTitle": {
         "message": "Preference"
-    },
-    "prefType": {
-        "message": "Host Type"
     },
     "prefFetchToken": {
         "message" : "Fetch"
