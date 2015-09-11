@@ -16,9 +16,6 @@
     "prefFetchToken": {
         "message" : "取得"
     },
-    "prefTokenNote": {
-        "message" : "每次您重新登入 Transmission 時就需要重新取得 TOKEN"
-    },
     "prefSave": {
         "message" : "儲存"
     },

@@ -16,9 +16,6 @@
     "prefFetchToken": {
         "message" : "Fetch"
     },
-    "prefTokenNote": {
-        "message" : "Every time you log in Transmission, you need to fetch new token"
-    },
     "prefSave": {
         "message": "Save"
     },
