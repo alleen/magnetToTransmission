@@ -14,7 +14,9 @@ Preference = {
         transmission: {
             ip: "192.168.1.1",
             port: 9091,
-            url: "/transmission/rpc"
+            url: "/transmission/rpc",
+            username:"",
+            password:""
         }
     },
     initialize: function() {
@@ -52,6 +54,8 @@ Preference = {
             Preference.set("ip", $("#prefIp").val());
             Preference.set("port", $("#prefPort").val());
             Preference.set("url", $("#prefUrl").val());
+            Preference.set("username", $("#prefUsername").val());
+            Preference.set("password", $("#prefPassword").val());
 
             var client;
             client = new TransmissionClient;
@@ -90,7 +94,14 @@ TransmissionClient = (function(_super) {
         targetUrl = "http://" + (Preference.get("ip")) + ":" + (Preference.get("port")) + (Preference.get("url"));
         params = "";
         http = new XMLHttpRequest();
-        http.open("POST", targetUrl, true);
+
+        if (Preference.get("username").length === 0)
+        {
+            http.open("POST", targetUrl, true);
+        } else {
+            http.open("POST", targetUrl, true, Preference.get("username"), Preference.get("password"));
+        }
+        
         http.setRequestHeader("Content-Type", "application/json");
         http.setRequestHeader("X-Transmission-Session-Id", token);
 
@@ -124,7 +135,15 @@ TransmissionClient = (function(_super) {
         var http, params, targetUrl, result;
         targetUrl = "http://" + (Preference.get("ip")) + ":" + (Preference.get("port")) + Preference.template.transmission.url;
         http = new XMLHttpRequest();
-        http.open("POST", targetUrl, true);
+
+        if (Preference.get("username").length === 0)
+        {
+            http.open("POST", targetUrl, true);
+        } else {
+            http.open("POST", targetUrl, true, Preference.get("username"), Preference.get("password"));
+        }
+
+
         http.setRequestHeader("Content-Type", "application/json");
         params = {
           "method": "torrent-add"
