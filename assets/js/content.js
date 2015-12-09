@@ -1,4 +1,4 @@
-var Client, Localize, Magnet, Preference, TransmissionClient,
+var Client, Localize, Magnet, Preference, TransmissionClient, MagnetHashCode,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   __hasProp = {}.hasOwnProperty;
 
@@ -101,7 +101,7 @@ TransmissionClient = (function(_super) {
         } else {
             http.open("POST", targetUrl, true, Preference.get("username"), Preference.get("password"));
         }
-        
+
         http.setRequestHeader("Content-Type", "application/json");
         http.setRequestHeader("X-Transmission-Session-Id", token);
 
@@ -174,7 +174,7 @@ Magnet = {
                 'title': chrome.i18n.getMessage("contextMenusLabel"),
                 'documentUrlPatterns': ['http://*/*', 'https://*/*'],
                 'contexts': ['link'],
-                'id': 'alleentest'
+                'id': 'magnetLink'
             }, function() {});
             if (!chrome.contextMenus.onClicked.hasListeners()) {
                 return chrome.contextMenus.onClicked.addListener(Magnet.handler);
@@ -187,11 +187,56 @@ Magnet = {
         if (url === void 0) {
             url = info.linkUrl;
         }
+
         if (!url) {
             return;
         }
+
+        if (info.menuItemId != "magnetLink") {
+            return;
+        }
+
         bg = chrome.extension.getBackgroundPage();
         return bg.Magnet.send(url);
+    },
+    send: function(url) {
+        var client;
+        if (Preference.cache.type === "transmission") {
+            client = new TransmissionClient;
+        }
+        else {
+            Preference.initialize();
+            return Preference.bind();
+        }
+        client.send(url);
+    }
+};
+
+MagnetHashCode = {
+    init: function() {
+        if (chrome.contextMenus) {
+            chrome.runtime.onInstalled.addListener(function() {
+              var context = "selection";
+              var title = chrome.i18n.getMessage("contextMenusSendMagnetHashCode");
+              var id = chrome.contextMenus.create({"title": title,
+                                                   "contexts":[context],
+                                                   "id": "magnetHashCode"});
+            });
+        }
+
+        chrome.contextMenus.onClicked.addListener(MagnetHashCode.handler);
+    },
+    handler: function(info, tab) {
+        var MagnetHashCode = info.selectionText;
+        var url = "magnet:?xt=urn:btih:" + encodeURIComponent(MagnetHashCode);
+
+        if (info.menuItemId != "magnetHashCode") {
+            return;
+        }
+
+        bg = chrome.extension.getBackgroundPage();
+        return bg.MagnetHashCode.send(url);
+
     },
     send: function(url) {
         var client;
@@ -209,6 +254,8 @@ Magnet = {
 Localize.bind();
 
 Magnet.init();
+
+MagnetHashCode.init();
 
 $(function() {
     Preference.initialize();

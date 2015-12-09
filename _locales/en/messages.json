@@ -8,7 +8,7 @@
         "description":"The description of the application, displayed in the web store."
     },
     "contextMenusLabel": {
-        "message": "Send magnet link to Transmission"
+        "message": "Send magnet link to Transmission Server"
     },
     "prefTitle": {
         "message": "Preference"
@@ -24,5 +24,8 @@
     },
     "magnetAddSuccess": {
         "message": "Added Successfully"
+    },
+    "contextMenusSendMagnetHashCode": {
+        "message": "Send magnet code to Transmission Server"
     }
 }

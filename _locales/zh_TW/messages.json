@@ -8,7 +8,7 @@
         "description":"The description of the application, displayed in the web store."
     },
     "contextMenusLabel": {
-        "message": "傳送 magnet 連結至 Transmission"
+        "message": "傳送 magnet 連結至 Transmission 伺服器"
     },
     "prefTitle": {
         "message": "偏好設定"
@@ -24,5 +24,8 @@
     },
     "magnetAddSuccess": {
         "message": "新增成功！"
+    },
+    "contextMenusSendMagnetHashCode": {
+        "message": "傳送 magnet code 至 Transmission 伺服器"
     }
 }
