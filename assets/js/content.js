@@ -29,8 +29,13 @@ Preference = {
             }
         }
 
-        $("#prefPort").val("9091");
-        $("#prefUrl").val("/transmission/rpc");
+		if (!Preference.get("port")) {
+        	$("#prefPort").val("9091");
+		}
+
+		if (!Preference.get("url")) {
+        	$("#prefUrl").val("/transmission/rpc");
+		}
     },
     get: function(key) {
         if (Preference.cache.hasOwnProperty(key)) {
