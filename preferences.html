@@ -6,7 +6,14 @@
     <body>
         <div class="container">
             <div class="col-sm-6 col-sm-offset-3">
-                <h1 align="center" i18n-content="prefTitle"></h1>
+                <div class="row">
+                    <div class="col-sm-offset-3 col-sm-4" style="display: inline-block;vertical-align: middle;float: none;">
+                        <div style="font-size:36px" i18n-content="prefTitle"></div>
+                    </div>
+                    <div class="col-sm-3" style="display: inline-block;vertical-align: -10px;float: none;">
+                        <div id="prefVersion"></div>
+                    </div>
+                </div>
                 <form class="form-horizontal">
                     <div class="form-group">
                         <label for="prefIP" class="col-sm-3 control-label">IP</label>
@@ -39,7 +46,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
+                        <div class="col-sm-offset-3 col-sm-10">
                             <button type="button" class="btn btn-default" id="prefSave" i18n-content="prefSave"></button>
                         </div>
                     </div>

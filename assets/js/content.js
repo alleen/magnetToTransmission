@@ -36,6 +36,13 @@ Preference = {
 		if (!Preference.get("url")) {
         	$("#prefUrl").val("/transmission/rpc");
 		}
+
+        var version = chrome.app.getDetails().version;
+
+        var prefVersionElementExists = document.getElementById("prefVersion");
+        if (prefVersionElementExists != null) {
+            document.getElementById("prefVersion").innerHTML = "v" + version;
+        }
     },
     get: function(key) {
         if (Preference.cache.hasOwnProperty(key)) {

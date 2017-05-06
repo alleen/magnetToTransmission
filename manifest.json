@@ -3,7 +3,7 @@
     "author": "Alleen Wang",
     "name": "__MSG_appName__",
     "description": "__MSG_appDesc__",
-    "version": "0.6",
+    "version": "0.7",
     "default_locale": "en",
     "permissions": [ "contextMenus", "http://*/*", "https://*/*" ],
     "browser_action": {
@@ -21,7 +21,6 @@
         "256": "assets/icon/icon-256.png"
     },
     "background": {
-        "persistent": false,
         "scripts": [ "assets/lib/jquery-2.1.3.min.js", "assets/js/content.js" ]
     },
     "options_page": "preferences.html",
